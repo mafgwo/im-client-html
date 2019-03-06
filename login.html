@@ -115,6 +115,7 @@
 					return;
 				}
 				window.Chat.setLocal("username", account)
+				window.Chat.setLocal("userId", account + '_' + (new Date().getTime()))
 				window.Chat.init();
 				window.open('./main.html', '_self');
 			})

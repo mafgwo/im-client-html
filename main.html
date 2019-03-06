@@ -36,117 +36,17 @@
 
 	<body>
 		<header class="mui-bar mui-bar-nav" style="padding-right: 15px;">
-			<h1 class="mui-title">群聊界面</h1>
+			<h1 class="mui-title">群聊界面(<span id="titleLabel"></span>)</h1>
 		</header>
 		<div class="mui-content">
 			<div id="content" class="mui-content-padded" style="padding-bottom: 50px;;">
-				<p>
-					<span>xxJacky1:</span>
-					<div style="word-wrap: break-word;word-break: break-all;overflow: hidden;">123123123</div>
-				</p>
-				<p>
-					<span style="margin-right: 0; float: right;">xxJacky2:</span>
-					<div style="clear: both"></div>
-					<div style="margin-right: 0; float: right; word-wrap: break-word;word-break: break-all;overflow: hidden;">888asdfhausdfhakjsdfh88888</div>
-					<div style="clear: both"></div>
-				</p>
-				<p>
-					<span style="margin-right: 0; float: right;">xxJacky2:</span>
-					<div style="clear: both"></div>
-					<div style="margin-right: 0; float: right; word-wrap: break-word;word-break: break-all;overflow: hidden;">888asdfhausdfhakjsdfh88888</div>
-					<div style="clear: both"></div>
-				</p>
-				<p>
-					<span style="margin-right: 0; float: right;">xxJacky2:</span>
-					<div style="clear: both"></div>
-					<div style="margin-top: 5px; margin-right: 0; float: right; word-wrap: break-word;word-break: break-all;overflow: hidden;">888asdfhausdfhakjsdfh88888</div>
-					<div style="clear: both"></div>
-				</p>
-				<p>
-					<span>xxJacky1:</span>
-					<div style="word-wrap: break-word;word-break: break-all;overflow: hidden;">123123123</div>
-				</p>
-				<p>
-					<span>xxJacky1:</span>
-					<div style="word-wrap: break-word;word-break: break-all;overflow: hidden;">123123123</div>
-				</p>
-				<p>
-					<span style="margin-right: 0; float: right;">xxJacky2:</span>
-					<div style="clear: both"></div>
-					<div style="margin-top: 5px; margin-right: 0; float: right; word-wrap: break-word;word-break: break-all;overflow: hidden;">888asdfhausdfhakjsdfh88888</div>
-					<div style="clear: both"></div>
-				</p>
-				<p>
-					<span>xxJacky1:</span>
-					<div style="word-wrap: break-word;word-break: break-all;overflow: hidden;">123123123</div>
-				</p>
-				<p>
-					<span>xxJacky1:</span>
-					<div style="word-wrap: break-word;word-break: break-all;overflow: hidden;">123123123</div>
-				</p>
-				<p>
-					<span style="margin-right: 0; float: right;">xxJacky2:</span>
-					<div style="clear: both"></div>
-					<div style="margin-top: 5px; margin-right: 0; float: right; word-wrap: break-word;word-break: break-all;overflow: hidden;">888asdfhausdfhakjsdfh88888</div>
-					<div style="clear: both"></div>
-				</p>
-				<p>
-					<span>xxJacky1:</span>
-					<div style="word-wrap: break-word;word-break: break-all;overflow: hidden;">123123123</div>
-				</p>
-				<p>
-					<span>xxJacky1:</span>
-					<div style="word-wrap: break-word;word-break: break-all;overflow: hidden;">123123123</div>
-				</p>
-				<p>
-					<span style="margin-right: 0; float: right;">xxJacky2:</span>
-					<div style="clear: both"></div>
-					<div style="margin-top: 5px; margin-right: 0; float: right; word-wrap: break-word;word-break: break-all;overflow: hidden;">888asdfhausdfhakjsdfh88888</div>
-					<div style="clear: both"></div>
-				</p>
-				<p>
-					<span>xxJacky1:</span>
-					<div style="word-wrap: break-word;word-break: break-all;overflow: hidden;">123123123</div>
-				</p>
-				<p>
-					<span>xxJacky1:</span>
-					<div style="word-wrap: break-word;word-break: break-all;overflow: hidden;">123123123</div>
-				</p>
-				<p>
-					<span style="margin-right: 0; float: right;">xxJacky2:</span>
-					<div style="clear: both"></div>
-					<div style="margin-top: 5px; margin-right: 0; float: right; word-wrap: break-word;word-break: break-all;overflow: hidden;">888asdfhausdfhakjsdfh88888</div>
-					<div style="clear: both"></div>
-				</p>
-				<p>
-					<span>xxJacky1:</span>
-					<div style="word-wrap: break-word;word-break: break-all;overflow: hidden;">123123123</div>
-				</p>
-				<p>
-					<span>xxJacky1:</span>
-					<div style="word-wrap: break-word;word-break: break-all;overflow: hidden;">123123123</div>
-				</p>
-				<p>
-					<span style="margin-right: 0; float: right;">xxJacky2:</span>
-					<div style="clear: both"></div>
-					<div style="margin-top: 5px; margin-right: 0; float: right; word-wrap: break-word;word-break: break-all;overflow: hidden;">888asdfhausdfhakjsdfh88888</div>
-					<div style="clear: both"></div>
-				</p>
-				<p>
-					<span>xxJacky1:</span>
-					<div style="word-wrap: break-word;word-break: break-all;overflow: hidden;">123123123</div>
-				</p>
-				<p>
-					<span>xxJacky1:</span>
-					<div style="word-wrap: break-word;word-break: break-all;overflow: hidden;">123123123</div>
-				</p>
 			</div>
 			<div id="end"></div>
 		</div>
 		<nav class="mui-bar mui-bar-tab">
 		    <div class="mui-input-row">
-				<input type="text" class="mui-input-clear" />
-				<button type="button" class="mui-btn">发送</button>
+				<input id="sendText" type="text" class="mui-input-clear" />
+				<button id="sendBtn" type="button" class="mui-btn">发送</button>
 			</div>
 		</nav>
 		<script src="js/jquery-1.11.1.js"></script>
@@ -157,9 +57,70 @@
 			if (username == null || username.trim().length == 0) {
 				window.open('./login.html', '_self')
 			}
-			window.Chat.toEnd()
+			window.Chat.toEnd();
 			// 重现判断一下连接
-			
+			window.Chat.init();
+			if (window.Chat.socket && window.Chat.socket.readyState) {
+				$('#titleLabel').html('已连接');
+			} else if (window.Chat.socket && window.Chat.readyState != 1) {
+				$('#titleLabel').html('已断开');
+			}
+			Chat.socket.onopen = function() {
+				console.log("连接已开启");
+				$('#titleLabel').html('已连接');
+			}
+			Chat.socket.onclose = function() {
+				console.log("连接已关闭");
+				$('#titleLabel').html('已断开');
+			}
+			Chat.socket.onmessage = function(e) {
+				console.log("接收到消息:" + e.data);
+				var dataObj = JSON.parse(e.data)
+				// 群聊消息
+				if (dataObj.type == 1) {
+					// 判断是否自己发送到消息
+					var userId = window.Chat.getLocal('userId');
+					if (userId == dataObj.fromId) {
+						// 不处理
+					} else {
+						var appendHtml = '<p>'
+					        + '<span>' + dataObj.fromName + ':</span>'
+					        + '<div style="word-wrap: break-word;word-break: break-all;overflow: hidden;">' + dataObj.msg + '</div>'
+				            + '</p>';
+						$('#content').html($('#content').html() + appendHtml)
+						window.Chat.toEnd()
+					}
+				}
+				// 系统通知
+				else if (dataOj.type == 9) {
+					// 待显示处理
+				}
+			}
+			$('#sendBtn').click(function() {
+				var text = $('#sendText').val().trim();
+				if (text == '') {
+					console.log('发送内容为空')
+					return;
+				}
+				// 开启了才发
+				if (window.Chat.socket && window.Chat.socket.readyState) {
+					var jsonObj = {fromId: window.Chat.getLocal('userId'), fromName: window.Chat.getLocal('username')};
+					jsonObj.type = 1;
+					jsonObj.msg = text;
+					window.Chat.socket.send(JSON.stringify(jsonObj));
+					// 本地添加发送内容
+					var appendHtml = '<p>'
+										+ '<span style="margin-right: 0; float: right;">' + jsonObj.fromName + ':</span>'
+										+ '<div style="clear: both"></div>'
+										+ '<div style="margin-right: 0; float: right; word-wrap: break-word;word-break: break-all;overflow: hidden;">' + jsonObj.msg + '</div>'
+										+ '<div style="clear: both"></div>'
+										+ '</p>';
+					$('#content').html($('#content').html() + appendHtml)
+					window.Chat.toEnd();
+					console.log('发送成功')
+					$('#sendText').val('')
+				}
+			})
 		</script>
 	</body>
 

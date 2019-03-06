@@ -1,10 +1,12 @@
 window.Chat = {
 	socket: null,
-	url: 'ws://localhost:8088/ws',
+	url: 'ws://192.168.0.102:8088/ws',
 	init: function() {
 		if (window.WebSocket) {
+			if (Chat.socket && Chat.socket.readyState) {
+				return;
+			}
 			Chat.socket = new WebSocket(Chat.url);
-			
 // 			Chat.socket.onopen = function() {
 // 				console.log("已成功建立连接")
 // 			}
@@ -34,4 +36,6 @@ window.Chat = {
 // 		var text = document.getElementById("sendText").value;
 // 		socket.send(text);
 // 	}
+
+// 前端缓存群聊消息 每次加载进来后加载群聊消息
 }
