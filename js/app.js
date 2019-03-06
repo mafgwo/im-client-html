@@ -1,12 +1,16 @@
 window.Chat = {
 	socket: null,
-	url: 'ws://192.168.0.102:8088/ws',
+	url: 'ws://176.122.142.223:8888/ws',
 	init: function() {
 		if (window.WebSocket) {
-			if (Chat.socket && Chat.socket.readyState) {
+			if (Chat.socket && Chat.socket.readyState == 1) {
+			    console.log('已连接')
 				return;
 			}
 			Chat.socket = new WebSocket(Chat.url);
+            if (Chat.socket && Chat.socket.readyState == 0) {
+                console.log('连接失败')
+            }
 // 			Chat.socket.onopen = function() {
 // 				console.log("已成功建立连接")
 // 			}

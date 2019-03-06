@@ -60,7 +60,7 @@
 			window.Chat.toEnd();
 			// 重现判断一下连接
 			window.Chat.init();
-			if (window.Chat.socket && window.Chat.socket.readyState) {
+			if (window.Chat.socket && window.Chat.socket.readyState == 1) {
 				$('#titleLabel').html('已连接');
 			} else if (window.Chat.socket && window.Chat.readyState != 1) {
 				$('#titleLabel').html('已断开');
@@ -68,6 +68,10 @@
 			Chat.socket.onopen = function() {
 				console.log("连接已开启");
 				$('#titleLabel').html('已连接');
+                // 开启了才发
+                var jsonObj = {fromId: window.Chat.getLocal('userId'), fromName: window.Chat.getLocal('username')};
+                jsonObj.type = 9;
+                window.Chat.socket.send(JSON.stringify(jsonObj));
 			}
 			Chat.socket.onclose = function() {
 				console.log("连接已关闭");
@@ -92,8 +96,13 @@
 					}
 				}
 				// 系统通知
-				else if (dataOj.type == 9) {
+				else if (dataObj.type == 9) {
 					// 待显示处理
+                    var appendHtml = '<p>'
+                        + '<div style="padding-left: 30px; padding-right: 30px; word-wrap: break-word;word-break: break-all;overflow: hidden; color: gray; font-size: 13px;">欢迎' + dataObj.fromName + '加入群聊</div>'
+                        + '</p>';
+                    $('#content').html($('#content').html() + appendHtml)
+                    window.Chat.toEnd()
 				}
 			}
 			$('#sendBtn').click(function() {
@@ -102,24 +111,27 @@
 					console.log('发送内容为空')
 					return;
 				}
+                if (window.Chat.socket == null || window.Chat.socket.readyState != 1) {
+				    console.log("连接已断开")
+                    alert("连接已断开")
+				    return;
+                }
 				// 开启了才发
-				if (window.Chat.socket && window.Chat.socket.readyState) {
-					var jsonObj = {fromId: window.Chat.getLocal('userId'), fromName: window.Chat.getLocal('username')};
-					jsonObj.type = 1;
-					jsonObj.msg = text;
-					window.Chat.socket.send(JSON.stringify(jsonObj));
-					// 本地添加发送内容
-					var appendHtml = '<p>'
-										+ '<span style="margin-right: 0; float: right;">' + jsonObj.fromName + ':</span>'
-										+ '<div style="clear: both"></div>'
-										+ '<div style="margin-right: 0; float: right; word-wrap: break-word;word-break: break-all;overflow: hidden;">' + jsonObj.msg + '</div>'
-										+ '<div style="clear: both"></div>'
-										+ '</p>';
-					$('#content').html($('#content').html() + appendHtml)
-					window.Chat.toEnd();
-					console.log('发送成功')
-					$('#sendText').val('')
-				}
+                var jsonObj = {fromId: window.Chat.getLocal('userId'), fromName: window.Chat.getLocal('username')};
+                jsonObj.type = 1;
+                jsonObj.msg = text;
+                window.Chat.socket.send(JSON.stringify(jsonObj));
+                // 本地添加发送内容
+                var appendHtml = '<p>'
+                    + '<span style="margin-right: 0; float: right; color: dodgerblue;">' + jsonObj.fromName + ':</span>'
+                    + '<div style="clear: both"></div>'
+                    + '<div style="margin-right: 0; margin-top: 10px; float: right; word-wrap: break-word;word-break: break-all;overflow: hidden;">' + jsonObj.msg + '</div>'
+                    + '<div style="clear: both"></div>'
+                    + '</p>';
+                $('#content').html($('#content').html() + appendHtml)
+                window.Chat.toEnd();
+                console.log('发送成功')
+                $('#sendText').val('')
 			})
 		</script>
 	</body>
